@@ -1,0 +1,245 @@
+/* Reset & basics */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Theme variables */
+:root[data-theme='light'] {
+  --bg: #87b2f3;
+  --container-bg: #fff;
+  --text: #222;
+  --input-bg: #fefefe;
+  --input-border: #ccc;
+  --button-bg: #4caf50;
+  --button-hover: #45a049;
+  --error-color: #e74c3c;
+}
+
+:root[data-theme='dark'] {
+  --bg: #121212;
+  --container-bg: #1e1e1e;
+  --text: #eee;
+  --input-bg: #333;
+  --input-border: #555;
+  --button-bg: #4caf50;
+  --button-hover: #45a049;
+  --error-color: #e74c3c;
+}
+
+/* Container */
+.container {
+  background: var(--container-bg);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+/* Heading */
+h2 {
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 2rem;
+  color: var(--text);
+}
+
+/* Input box */
+.input-box {
+  position: relative;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.input-box i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: var(--input-border);
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 12px 12px 38px;
+  font-size: 1rem;
+  border: 1.5px solid var(--input-border);
+  border-radius: 6px;
+  background-color: var(--input-bg);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-box input:focus {
+  border-color: var(--button-bg);
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 38px;
+  color: var(--input-border);
+  font-size: 1rem;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: 0.3s ease all;
+  user-select: none;
+}
+
+/* Float label effect */
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+  top: 5px;
+  font-size: 0.8rem;
+  color: var(--button-bg);
+  background: var(--container-bg);
+  padding: 0 4px;
+}
+
+/* Toggle password eye icon */
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  color: var(--input-border);
+  transition: color 0.3s;
+}
+
+.toggle-password:hover {
+  color: var(--button-bg);
+}
+
+/* Error message */
+.error {
+  color: var(--error-color);
+  font-weight: 600;
+  margin-bottom: 15px;
+  min-height: 20px;
+}
+
+/* Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--button-bg);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--button-hover);
+}
+
+/* Google login section */
+.google-login {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Footer */
+.footer-text {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--input-border);
+}
+
+.footer-text a {
+  color: var(--button-bg);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.footer-text a:hover {
+  color: var(--button-hover);
+}
+
+/* Theme toggle switch styling */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* Rounded slider */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

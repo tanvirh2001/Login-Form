@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Form</title>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="theme-toggle">
+    <label class="switch">
+      <input type="checkbox" id="themeSwitch">
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  <div class="container" data-aos="zoom-in">
+    <form id="loginForm" data-aos="fade-up">
+      <h2 data-aos="fade-down">Login | Form</h2>
+
+      <div class="input-box" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-user"></i>
+        <input type="text" id="username" required placeholder=" " />
+        <label for="username">Username or Email</label>
+      </div>
+
+      <div class="input-box" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="password" required placeholder=" " />
+        <label for="password">Password</label>
+        <span class="toggle-password" onclick="togglePassword()">👁️</span>
+      </div>
+
+      <p class="error" id="errorMsg"></p>
+
+      <button type="submit" data-aos="zoom-in" data-aos-delay="300">Login</button>
+
+      <div class="google-login" data-aos="fade-up" data-aos-delay="400">
+       
+        <div id="g_id_onload"
+             data-client_id="YOUR_GOOGLE_CLIENT_ID"
+             data-context="signin"
+             data-ux_mode="popup"
+             data-callback="handleCredentialResponse"
+             data-auto_prompt="false">
+        </div>
+
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="outline"
+             data-text="sign_in_with"
+             data-size="large"
+             data-logo_alignment="left">
+        </div>
+      </div>
+
+      <div class="footer-text" data-aos="fade-up" data-aos-delay="500">
+        <p>Don't have an account? <a href="#">Sign up</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-out-cubic' });
+  </script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
